@@ -14,7 +14,7 @@ from django.db.models import Count
 from .models import Subject
 from django.views.generic.detail import DetailView
 from students.forms import CourseEnrollForm
-#from braces.views import CsrfExemptMixin, JsonRequestResponseMixin 
+from braces.views import CsrfExemptMixin, JsonRequestResponseMixin 
 
 class OwnerMixin:
     def get_queryset(self):
@@ -156,3 +156,4 @@ class CourseDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['enroll_form'] = CourseEnrollForm(initial={'course':self.object})
         return context
+
